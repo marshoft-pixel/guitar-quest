@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guitar Quest</title>
+<style>
+body {
+  margin: 0;
+  background: #111827;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.card {
+  margin: 35px 16px;
+  padding: 25px 15px;
+  background: #1f2937;
+  border-radius: 20px;
+}
+h1 { color: #fbbf24; }
+button {
+  padding: 14px 22px;
+  margin: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: #fbbf24;
+  font-size: 17px;
+  font-weight: bold;
+}
+.chord {
+  font-size: 35px;
+  color: #34d399;
+  margin: 20px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>🎸 Guitar Quest</h1>
+  <p>Welcome, Guitar Hero!</p>
+  <p>Learn your first guitar chords.</p>
+  <div class="chord" id="chord">Em</div>
+  <button onclick="nextChord()">Next Chord ➜</button>
+  <p id="progress">Chord 1 of 5</p>
+  <p>Keep practicing and level up!</p>
+</div>
+<script>
+const chords = ["Em", "Am", "C", "G", "D"];
+let current = 0;
+function nextChord() {
+  current = (current + 1) % chords.length;
+  document.getElementById("chord").textContent = chords[current];
+  document.getElementById("progress").textContent =
+    "Chord " + (current + 1) + " of " + chords.length;
+}
+</script>
+</body>
+</html>
